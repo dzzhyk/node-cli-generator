@@ -77,3 +77,35 @@ generator:
         description: "指定全部"
         callback: "callbackFunc2"
 ```
+
+自动生成效果如下：
+
+```shell script
+
+➜ my-tool        
+Usage: my-tool [options] [command]
+
+Options:
+  -V, --version     output the version number
+  -a --all          指定全部
+  -h, --help        display help for command
+
+Commands:
+  list [options]    列表查询
+  record [options]  开始录制
+  help [command]    display help for command
+
+# ----------------------------------------------------------
+
+# 使用别名
+➜ mtl list -h
+Usage: mtl list [options]
+
+列表查询
+
+Options:
+  -cp, --client-port <port>  指定PC端口 (default: "8765")
+  -sp, --server-port <port>  指定测试机端口
+  -h, --help                 display help for command
+➜  my-tool 
+```
