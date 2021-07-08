@@ -1,0 +1,67 @@
+#[[#!/usr/bin/env node]]#
+const program = require("commander");
+const chalk = require("chalk");
+
+#[[program
+.version(chalk.yellowBright(`]]#$name#[[ version: ${require("../package.json").version}`))]]#
+#foreach($op in $options)
+#if("$!op.callback" != "" && "$!op.value" != "")
+.option("$op.flags", `$op.description`, $op.callback, `$op.value`)
+#elseif("$!op.callback" != "")
+.option("$op.flags", `$op.description`, $op.callback)
+#elseif("$!op.value" != "")
+.option("$op.flags", `$op.description`, `$op.value`)
+#else
+.option("$op.flags", `$op.description`)
+#end
+#end;
+
+#foreach($command in $commands)
+
+program
+.command("$command.name")
+#foreach($op in $command.options)
+#if("$!op.callback" != "" && "$!op.value" != "")
+.option("$op.flags", `$op.description`, $op.callback, `$op.value`)
+#elseif("$!op.callback" != "")
+.option("$op.flags", `$op.description`, $op.callback)
+#elseif("$!op.value" != "")
+.option("$op.flags", `$op.description`, `$op.value`)
+#else
+.option("$op.flags", `$op.description`)
+#end
+#end
+.description(chalk.yellowBright("$command.description"))
+.action($command.action);
+
+#end
+
+#foreach($command in $commands)
+// action func: $command.name
+function ${command.action}(flag){
+    require("../lib/$command.name").run(flag);
+}
+
+#foreach($op in $command.options)
+#if("$!op.callback" != "")
+
+// callback func: $command.name -> $op.callback
+function ${op.callback}(flag){
+
+}
+
+#end
+#end
+
+#end
+#foreach($op in $options)
+#if("$!op.callback" != "")
+// callback func: $op.callback
+function ${op.callback}(flag){
+
+}
+
+#end
+#end
+
+program.parse(process.argv);

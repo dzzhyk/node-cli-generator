@@ -1,0 +1,27 @@
+{
+  "name": "$name",
+  "version": "$version",
+  "description": "$description",
+  "repository": "$repo",
+  "author": "$author",
+  "license": "$license",
+  "private": false,
+  "bin": {
+#foreach($b in $bin)
+#if($velocityCount == $bin.size())
+    "$b": "bin/cli.js"
+#else
+    "$b": "bin/cli.js",
+#end
+#end
+  },
+  "scripts": {
+  },
+  "dependencies": {
+    "chalk": "^4.1.1",
+    "commander": "^7.2.0",
+    "inquirer": "^8.1.0",
+    "log-symbols": "4.1.0",
+    "ora": "^5.4.0"
+  }
+}

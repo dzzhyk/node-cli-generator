@@ -1,0 +1,49 @@
+{
+  "properties": [
+    {
+      "name": "generator.cli.name",
+      "type": "java.lang.String",
+      "description": "cli工具名称."
+    },
+    {
+      "name": "generator.cli.version",
+      "type": "java.lang.String",
+      "description": "cli工具版本."
+    },
+    {
+      "name": "generator.cli.bin",
+      "type": "java.lang.String",
+      "description": "cli工具可执行bin列表."
+    },
+    {
+      "name": "generator.cli.commands",
+      "type": "java.lang.String",
+      "description": "cli工具命令."
+    },
+    {
+      "name": "generator.cli.options",
+      "type": "java.lang.String",
+      "description": "cli工具全局选项."
+    },
+    {
+      "name": "generator.cli.description",
+      "type": "java.lang.String",
+      "description": "cli工具描述."
+    },
+    {
+      "name": "generator.cli.author",
+      "type": "java.lang.String",
+      "description": "cli工具作者."
+    },
+    {
+      "name": "generator.cli.repo",
+      "type": "java.lang.String",
+      "description": "cli工具仓库地址."
+    },
+    {
+      "name": "generator.cli.license",
+      "type": "java.lang.String",
+      "description": "cli工具开源协议."
+    }
+  ]
+}
